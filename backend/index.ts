@@ -15,7 +15,6 @@ io.on('connection', (socket) => {
 
   socket.on('message', (message) => {
     console.log(`${socket.id.substr(0, 5)} said: ${message}`);
-    console.log(socket);
     io.emit('message', `${socket.id.substr(0, 5)} said: ${message}`);
   });
 });

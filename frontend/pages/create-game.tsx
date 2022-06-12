@@ -4,12 +4,17 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 
 import Header from '../components/header';
+import socket from '../utils/socket';
 
-const About = () => (
+socket.emit('create-game', '', (res) => {
+  console.log(res);
+});
+
+const CreateGame = () => (
   <>
     <Header />
-    <h1>About page</h1>
+    <h1>Create new game</h1>
   </>
 );
 
-export default About;
+export default CreateGame;

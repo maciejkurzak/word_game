@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add -D @typescript-eslint/dot-notation
+  C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\yarn\bin\yarn.js add @types/zustand -D
 
 PATH: 
   C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Users\Maciej\Downloads\Compressed\WINDOWS.X64_193000_db_home\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\sqlite3;C:\ProgramData\chocolatey\bin;C:\Users\Maciej\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\dotnet\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\Maciej\AppData\Local\Programs\Python\Python39\Scripts;C:\Program Files\GitHub CLI\;C:\Program Files\PowerShell\7\;C:\Program Files\Cloudflare\Cloudflare WARP\;C:\Users\Maciej\AppData\Local\Programs\Python\Python310\Scripts\;C:\Users\Maciej\AppData\Local\Programs\Python\Python310\;C:\Users\Maciej\scoop\shims;C:\Ruby30\bin;C:\Users\Maciej\AppData\Local\Microsoft\WindowsApps;C:\Users\Maciej\AppData\Local\Programs\Microsoft VS Code Insiders\bin;C:\Users\Maciej\AppData\Local\GitHubDesktop\bin;C:\Program Files (x86)\Nmap;C:\Users\Maciej\.dotnet\tools;C:\Users\Maciej\AppData\Roaming\npm;C:\tools\dart-sdk\bin;C:\Users\Maciej\AppData\Roaming\Pub\Cache\bin;C:\Users\Maciej\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\tools\Cmder;C:\Users\Maciej\AppData\Local\gitkraken\bin;C:\Users\Maciej\AppData\Local\Programs\Hyper\resources\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/@typescript-eslint%2fdot-notation: Not found
+  Error: https://registry.yarnpkg.com/@types%2fzustand: Not found
       at Request.params.callback [as _callback] (C:\Users\Maciej\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:67029:18)
       at Request.self.callback (C:\Users\Maciej\AppData\Roaming\nvm\v16.13.1\node_modules\yarn\lib\cli.js:140883:22)
       at Request.emit (node:events:390:28)
@@ -36,7 +36,8 @@ npm manifest:
       "concurrently": "^7.2.1",
       "nodemon": "^2.0.16",
       "socket.io": "^4.5.1",
-      "typescript": "^4.7.3"
+      "typescript": "^4.7.3",
+      "zustand": "^4.0.0-rc.1"
     },
     "scripts": {
       "start": "concurrently \"yarn tsc --watch\" \"nodemon -q dist/index.js\"",
@@ -2549,6 +2550,11 @@ Lockfile:
     dependencies:
       prepend-http "^2.0.0"
   
+  use-sync-external-store@1.1.0:
+    version "1.1.0"
+    resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.1.0.tgz#3343c3fe7f7e404db70f8c687adf5c1652d34e82"
+    integrity sha512-SEnieB2FPKEVne66NpXPd1Np4R1lTNKfjuy3XdIoPQKYBAFdzbzSZlSn1KJZUiihQLQC5Znot4SBz1EOTBwQAQ==
+  
   v8-compile-cache@^2.0.3:
     version "2.3.0"
     resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
@@ -2650,3 +2656,10 @@ Lockfile:
       string-width "^4.2.3"
       y18n "^5.0.5"
       yargs-parser "^21.0.0"
+  
+  zustand@^4.0.0-rc.1:
+    version "4.0.0-rc.1"
+    resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.0.0-rc.1.tgz#ec30a3afc03728adec7e1bd7bcc3592176372201"
+    integrity sha512-qgcs7zLqBdHu0PuT3GW4WCIY5SgXdsv30GQMu9Qpp1BA2aS+sNS8l4x0hWuyEhjXkN+701aGWawhKDv6oWJAcw==
+    dependencies:
+      use-sync-external-store "1.1.0"

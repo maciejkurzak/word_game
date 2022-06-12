@@ -5,14 +5,10 @@ import Link from 'next/link';
 import styles from '../styles/Home.module.css';
 import Header from '../components/header';
 
-import { io } from 'socket.io-client';
-import { useState } from 'react';
+import socket from '../utils/socket';
+import { useStore } from 'zustand';
 
-const socket = io('ws://localhost:8800', {
-  extraHeaders: {
-    'Access-Control-Allow-Origin': '*',
-  },
-});
+import { useState } from 'react';
 
 socket.on('message', (text) => {
   console.log(text);
@@ -25,6 +21,10 @@ socket.on('hello', (text, callback) => {
 
 const Home: NextPage = () => {
   const [message, setMessage] = useState('');
+
+  const bears = useStore((state) => state.bears);
+  const increasePopulation = useStore((state) => state.increasePopulation);
+
   return (
     // <div className={styles.container}>
     <>
@@ -39,9 +39,16 @@ const Home: NextPage = () => {
 
       <input type="text" onChange={(e) => setMessage(e.target.value)} />
       <button onClick={() => socket.emit('message', message)}>Send</button>
+
+      <h2>Create a lobby</h2>
+      <Link href="/create-game">Create</Link>
+
+      <h1>{bears}</h1>
+      <button onClick={increasePopulation}>Add Bear</button>
     </>
     // </div>
   );
 };
 
 export default Home;
+export { socket };
