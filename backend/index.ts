@@ -8,13 +8,13 @@ const io = new Server(8800, {
 });
 
 io.on('connection', (socket) => {
-  console.log('a user connected');
+  // console.log('a user connected');
   socket.emit('hello', 'hello, world', (res) => {
-    console.log(res);
+    // console.log(res);
   });
 
-  socket.on('message', (message) => {
-    console.log(`${socket.id.substr(0, 5)} said: ${message}`);
-    io.emit('message', `${socket.id.substr(0, 5)} said: ${message}`);
+  socket.on('message', ({ nickname, message }) => {
+    console.log(`${nickname} said: ${message}`);
+    io.emit('message', `${nickname} said: ${message}`);
   });
 });
